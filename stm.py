@@ -29,7 +29,7 @@ def detect_abuse(sentences):
                 api_key="f75fa9778971ebea5566505b72fc2d88",
                 gpt_url="wss://spark-api.xf-yun.com/v3.5/chat",
                 domain="generalv3.5",
-                query=sentence + "是不是在侮辱人？你只回答是或不是"
+                query=sentence + " 这句话是不是在侮辱人？你只回答是或不是"
             )
         else:
             # st.write(f" 删除句子: {sentence}")
