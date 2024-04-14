@@ -6,14 +6,16 @@ def main():
     st.title('骂人检测应用')
 
     # 显示输入框，让用户输入20条句子
-    sentences = st.text_area('请输入20条句子，每行一个', height=200)
+    sentences = st.text_area('请输入句子（20句或任意数量），每行一个', height=200)
 
     if st.button('开始检测'):
-        # 按钮点击后执行检测
-
-        results = detect_abuse(sentences.split('\n'))
-        show_results(results)
-
+        if len(sentences)>0:
+            # 按钮点击后执行检测
+            st.write(f"正在检测请稍等")
+            results = detect_abuse(sentences.split('\n'))
+            show_results(results)
+        else:
+            st.write(f"内容不能为空")
 def detect_abuse(sentences):
     # 使用星火或文心一言的接口对每个句子进行骂人检测
     sparkAPI.latest_message_content = []
